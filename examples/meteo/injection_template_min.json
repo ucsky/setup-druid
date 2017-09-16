@@ -1,0 +1,58 @@
+{
+    "type": "index_hadoop",
+    "spec": {
+        "ioConfig": {
+            "type": "hadoop",
+            "inputSpec": {
+                "type": "static",
+                "paths": "APATHTOSUB/meteo/data.csv"
+            }
+        },
+        "dataSchema": {
+            "dataSource": "meteo",
+            "granularitySpec": {
+                "type": "uniform",
+                "segmentGranularity": "day",
+                "queryGranularity": "none",
+                "intervals": [
+                    "2014-07-01/2014-07-03"
+                ]
+            },
+            "parser": {
+                "type": "hadoopyString",
+                "parseSpec": {
+                    "format": "csv",
+                    "timestampSpec": {
+                        "format": "yyyy-mm-dd",
+                        "column": "date"
+                    },
+                    "columns": [
+                        "date",
+                        "actual_mean_temp",
+                        "record_precipitation"
+                    ],
+                    "dimensionsSpec": {
+                        "dimensions": [
+                            "actual_mean_temp",
+                            "record_precipitation"
+                        ]
+                    }
+                }
+            },
+            "metricsSpec": [
+                {
+                    "name": "count",
+                    "type": "count"
+                }
+            ]
+        },
+        "tuningConfig": {
+            "type": "hadoop",
+            "partitionsSpec": {
+                "type": "hashed",
+                "targetPartitionSize": 5000000
+            },
+            "jobProperties": {}
+        }
+    }
+}
