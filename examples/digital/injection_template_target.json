@@ -5,17 +5,17 @@
             "type": "hadoop",
             "inputSpec": {
                 "type": "static",
-                "paths": "APATHTOSUB/digital/data.csv"
+                "paths": "APATHTOSUB/data.csv"
             }
         },
         "dataSchema": {
-            "dataSource": "digital",
+            "dataSource": "conversion",
             "granularitySpec": {
                 "type": "uniform",
                 "segmentGranularity": "day",
                 "queryGranularity": "none",
                 "intervals": [
-                    "2014-07-01/2015-07-01"
+                    "2015-11-04/2017-11-04"
                 ]
             },
             "parser": {
@@ -23,20 +23,20 @@
                 "parseSpec": {
                     "format": "csv",
                     "timestampSpec": {
-                        "format": "yyyy-MM-dd HH:mm:ss",
+                        "format": "auto",
                         "column": "date"
                     },
                     "columns": [
-                        "date",
                         "user",
+                        "date",
                         "device",
                         "power"
                     ],
                     "dimensionsSpec": {
                         "dimensions": [
-                            "user",
-                            "device",
-                            "power"
+                        "user",
+                        "device",
+                        "power"
                         ]
                     }
                 }
