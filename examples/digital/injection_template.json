@@ -12,10 +12,10 @@
             "dataSource": "digital",
             "granularitySpec": {
                 "type": "uniform",
-                "segmentGranularity": "day",
+                "segmentGranularity": "hour",
                 "queryGranularity": "none",
                 "intervals": [
-                    "2014-07-01/2015-07-01"
+                    "2015-06-27/2015-06-29"
                 ]
             },
             "parser": {
