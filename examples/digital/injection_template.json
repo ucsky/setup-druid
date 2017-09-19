@@ -27,8 +27,8 @@
                         "column": "date"
                     },
                     "columns": [
-                        "date",
                         "user",
+                        "date",
                         "device",
                         "power"
                     ],
